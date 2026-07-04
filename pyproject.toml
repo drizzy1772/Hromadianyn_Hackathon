@@ -1,0 +1,9 @@
+[project]
+name = "hromadianyn-fop"
+version = "0.1.0"
+description = "Обробка даних ФОП з vkursi.pro та пошук найближчих відділень UKRSIB Bank"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

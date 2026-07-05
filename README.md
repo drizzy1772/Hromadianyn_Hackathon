@@ -54,7 +54,7 @@ The application combines information from **vkursi.pro** and **JSON** datasets i
 - ✅ Modular architecture with repositories and services
 
 ## Project Diagram
-<img width="776" height="500" alt="Untitled Diagram drawio(17)" src="https://github.com/user-attachments/assets/68fd2383-47a7-4bf4-b1e2-71b1ca9e04e0" />
+<img width="776" height="500" alt="Untitled Diagram drawio(18)" src="https://github.com/user-attachments/assets/7a040e80-2831-4574-951e-2e10c351b8c5" />
 
 
 ## Project Structure

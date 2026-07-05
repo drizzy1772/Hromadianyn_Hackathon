@@ -28,6 +28,9 @@ The application combines information from **vkursi.pro** and **JSON** datasets i
 * Reduces repetitive work and minimizes human errors.
 * Provides structured data that can be used for further analytics or business automation.
 
+## Image of Project
+<img width="1365" height="654" alt="Screenshot 2026-07-05 at 15-28-19 UKRSIB Bank — AI Branch Search for Sole Proprietors" src="https://github.com/user-attachments/assets/62df29f8-282e-4786-9d48-e0513754d10c" />
+
 
 ## Stack
 

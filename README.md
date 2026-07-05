@@ -76,8 +76,6 @@ Hromadianyn_F/
 ├── .env.example
 ├── .gitignore
 ├── README.md
-├── implementation_plan.md
-├── Automating Data Processing Pipeline.md
 ├── pyproject.toml
 ├── requirements.txt
 ├── run.sh

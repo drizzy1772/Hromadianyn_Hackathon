@@ -59,21 +59,30 @@ The application combines information from **vkursi.pro** and **JSON** datasets i
 
 
 ## Project Structure
-
-```text
+```
 Hromadianyn_F/
 ├── app/
-│   ├── main.py
-│   ├── config.py
 │   ├── db/
+│   │   ├── database.py
+│   │   └── models.py
 │   ├── repositories/
 │   ├── schemas/
-│   └── services/
+│   ├── services/
+│   ├── config.py
+│   └── main.py
 ├── data/
+│   └── fop_registered.json
 ├── tests/
-├── requirements.txt
+├── .env.example
+├── .gitignore
+├── README.md
+├── implementation_plan.md
+├── Automating Data Processing Pipeline.md
 ├── pyproject.toml
-└── .env.example
+├── requirements.txt
+├── run.sh
+├── run_frontend.sh
+└── index.html
 ```
 
 ## Database Tables

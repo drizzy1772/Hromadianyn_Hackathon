@@ -19,7 +19,8 @@ Key Features
 ✅ Store processed data in PostgreSQL with SQLAlchemy ORM
 ✅ Database migrations with Alembic
 ✅ Modular architecture with repositories and services
-Project Structure
+
+## Project Structure
 Hromadianyn_F/
 ├── app/
 │   ├── main.py

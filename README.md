@@ -53,6 +53,11 @@ The application combines information from **vkursi.pro** and **JSON** datasets i
 - ✅ Database migrations with Alembic
 - ✅ Modular architecture with repositories and services
 
+## Project Diagram
+<img width="771" height="522" alt="Untitled Diagram drawio(16)" src="https://github.com/user-attachments/assets/1ff6e52e-558e-417d-9d5d-1d0fb4b7db8f" />
+
+
+
 ## Project Structure
 
 ```text

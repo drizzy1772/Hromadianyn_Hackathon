@@ -82,7 +82,7 @@ Hromadianyn_F/
 
 ```bash
 # Clone repository
-git clone https://github.com/username/Hromadianyn_F.git
+git clone https://github.com/drizzy1772/Hromadianyn_F.git
 
 cd Hromadianyn_F
 

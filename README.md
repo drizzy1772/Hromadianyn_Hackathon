@@ -1,12 +1,14 @@
-# Project Description
+# Hromadianyn FOP — FOP Data Processing | Hackathon Project
 
-Many newly registered sole proprietors (FOPs) need to submit documents or visit a bank branch during the onboarding process. However, registration data is often scattered across different sources, and manually searching for the nearest bank branch is time-consuming.
+A **collaborative hackathon project** for **automated processing of Ukrainian Sole Proprietor (FOP)** registration data. Developed by a team of **four during an AI/Machine Learning hackathon**. The application **parses registration information, processes addresses, finds the nearest UKRSIB Bank branch, and stores the data in PostgreSQL**.
 
-This project automates the entire workflow by collecting FOP registration data from multiple sources, validating and processing it, enriching addresses with geographic coordinates, and automatically finding the nearest **UKRSIB Bank** branch for each registered entrepreneur.
+Many newly registered sole proprietors (FOPs) need to **submit** documents or **visit** a bank branch during the onboarding process. However, registration data is often scattered across different sources, and manually searching for the nearest bank branch is time-consuming.
 
-The application combines information from **vkursi.pro** and JSON datasets into a unified PostgreSQL database, making the data easy to search, analyze, and integrate into other systems.
+This project automates the entire workflow by **collecting** FOP registration data from **multiple sources, validating and processing it**, **enriching addresses with geographic coordinates**, and automatically **finding the nearest** **UKRSIB Bank** branch for each registered entrepreneur.
 
-The project demonstrates how web scraping, data validation, geocoding, spatial calculations, and database technologies can be combined into a single automated data-processing pipeline.
+The application combines information from **vkursi.pro** and **JSON** datasets into a unified **PostgreSQL database**, making the data easy to **search, analyze, and integrate into other systems**.
+
+**The project demonstrates how web scraping, data validation, geocoding, spatial calculations, and database technologies can be combined into a single automated data-processing pipeline.**
 
 ## Main Workflow
 

@@ -1,6 +1,6 @@
 # Hromadianyn FOP — FOP Data Processing | Hackathon Project
 
-A **collaborative hackathon project** for **automated processing of Ukrainian Sole Proprietor (FOP)** was maded in **Igor Sikorsky Kyiv Polytechnic Institute** registration data. Developed by a team of ***four during an AI/Machine Learning hackathon***. The application **parses registration information, processes addresses, finds the nearest UKRSIB Bank branch, and stores the data in PostgreSQL**.
+A **collaborative hackathon project** for **automated processing of Ukrainian Sole Proprietor (FOP)** was maded in **Igor Sikorsky Kyiv Polytechnic Institute** for registration data. Developed by a team of ***four during an AI/Machine Learning hackathon***. The application **parses registration information, processes addresses, finds the nearest UKRSIB Bank branch, and stores the data in PostgreSQL**.
 
 Many newly registered sole proprietors (FOPs) need to **submit** documents or **visit** a bank branch during the onboarding process. However, registration data is often scattered across different sources, and manually searching for the nearest bank branch is time-consuming.
 

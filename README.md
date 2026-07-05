@@ -1,6 +1,31 @@
-# Hromadianyn FOP — FOP Data Processing
+# Project Description
 
-A collaborative hackathon project for automated processing of Ukrainian Sole Proprietor (FOP) registration data. Developed by a team of four during an **AI/Machine Learning** hackathon. The application parses registration information, processes addresses, finds the nearest **UKRSIB Bank** branch, and stores the data in PostgreSQL.
+Many newly registered sole proprietors (FOPs) need to submit documents or visit a bank branch during the onboarding process. However, registration data is often scattered across different sources, and manually searching for the nearest bank branch is time-consuming.
+
+This project automates the entire workflow by collecting FOP registration data from multiple sources, validating and processing it, enriching addresses with geographic coordinates, and automatically finding the nearest **UKRSIB Bank** branch for each registered entrepreneur.
+
+The application combines information from **vkursi.pro** and JSON datasets into a unified PostgreSQL database, making the data easy to search, analyze, and integrate into other systems.
+
+The project demonstrates how web scraping, data validation, geocoding, spatial calculations, and database technologies can be combined into a single automated data-processing pipeline.
+
+## Main Workflow
+
+1. Parse FOP registration data from **vkursi.pro**.
+2. Load and validate additional records from a JSON file.
+3. Extract and normalize registration information.
+4. Geocode business addresses using Nominatim.
+5. Parse all available UKRSIB Bank branches.
+6. Calculate the nearest branch for every registered FOP using the Haversine formula.
+7. Store all processed and linked data in PostgreSQL.
+
+## Problem Solved
+
+* Eliminates manual processing of registration data.
+* Automatically matches entrepreneurs with the nearest bank branch.
+* Centralizes information from multiple sources into one database.
+* Reduces repetitive work and minimizes human errors.
+* Provides structured data that can be used for further analytics or business automation.
+
 
 ## Stack
 

@@ -132,6 +132,11 @@ python -m app.main --vkursi-url "https://vkursi.pro/your-url"
 # Verbose mode
 python -m app.main --fop-file data/fop_registered.json --verbose
 ```
+## Front-end Live
+## https://hromadianyn-hackathon-1.onrender.com
+
+## Back-end Live
+## https://hromadianyn-hackathon.onrender.com/docs
 
 ## Authors
 

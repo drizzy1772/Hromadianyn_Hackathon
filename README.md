@@ -142,5 +142,5 @@ This project was developed during an **AI/Machine Learning Hackathon** by a team
 - Backend Developers
     - Bohdan(drizzy1772)
     - Max
-Project Manager
+- Project Manager
     - Serhii

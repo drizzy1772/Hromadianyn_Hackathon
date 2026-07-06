@@ -1,106 +1,138 @@
-# Hromadianyn FOP — Обробка даних ФОП
+# Hromadianyn FOP — FOP Data Processing | Hackathon Project
 
-Скрипт для автоматизованої обробки реєстраційних даних ФОП (фізичних осіб-підприємців) з інтеграцією vkursi.pro та пошуком найближчих відділень UKRSIB Bank.
+A **collaborative hackathon project** for **automated processing of Ukrainian Sole Proprietor (FOP)** was maded in **Igor Sikorsky Kyiv Polytechnic Institute** for registration data. Developed by a team of ***four during an AI/Machine Learning hackathon***. The application **parses registration information, processes addresses, finds the nearest UKRSIB Bank branch, and stores the data in PostgreSQL**.
 
-## Можливості
+Many newly registered sole proprietors (FOPs) need to **submit** documents or **visit** a bank branch during the onboarding process. However, registration data is often scattered across different sources, and manually searching for the nearest bank branch is time-consuming.
 
-- 🌐 **Парсинг vkursi.pro** — витягує дані з HTML-таблиці (ЄДРПОУ, назва, адреса, дата реєстрації, ім'я, прізвище, вид діяльності)
-- 📄 **Завантаження JSON** — валідує та завантажує файл з зареєстрованими ФОП
-- 🏦 **Парсинг UKRSIB Bank** — отримує список відділень з сайту банку
-- 📍 **Геокодування** — перетворює адреси в координати (Nominatim, безкоштовно)
-- 🗺️ **Пошук відділення** — знаходить найближче відділення UKRSIB (Haversine formula)
-- 🗄️ **PostgreSQL** — зберігає дані через SQLAlchemy ORM
+This project automates the entire workflow by **collecting** FOP registration data from **multiple sources, validating and processing it**, **enriching addresses with geographic coordinates**, and automatically **finding the nearest** **UKRSIB Bank** branch for each registered entrepreneur.
 
-## Технології
+The application combines information from **vkursi.pro** and **JSON** datasets into a unified **PostgreSQL database**, making the data easy to **search, analyze, and integrate into other systems**.
 
-| Технологія | Призначення |
-|------------|-------------|
-| Python 3.11+ | Мова програмування |
-| SQLAlchemy 2.0 | ORM для PostgreSQL |
-| Pydantic 2.0 | Валідація даних |
-| PostgreSQL | База даних |
-| BeautifulSoup4 | Парсинг HTML |
-| geopy (Nominatim) | Геокодування адрес |
-| Alembic | Міграції БД |
+**The project demonstrates how web scraping, data validation, geocoding, spatial calculations, and database technologies can be combined into a single automated data-processing pipeline.**
 
-## Встановлення
+## Main Workflow
 
-```bash
-# 1. Клонуємо репозиторій
-cd Hromadianyn_F
+1. Parse FOP registration data from **vkursi.pro**.
+2. Load and validate additional records from a JSON file.
+3. Extract and normalize registration information.
+4. Geocode business addresses using Nominatim.
+5. Parse all available UKRSIB Bank branches.
+6. Calculate the nearest branch for every registered FOP using the Haversine formula.
+7. Store all processed and linked data in PostgreSQL.
 
-# 2. Створюємо віртуальне середовище
-python -m venv venv
-source venv/bin/activate  # macOS/Linux
+## Problem Solved
 
-# 3. Встановлюємо залежності
-pip install -r requirements.txt
+* Eliminates manual processing of registration data.
+* Automatically matches entrepreneurs with the nearest bank branch.
+* Centralizes information from multiple sources into one database.
+* Reduces repetitive work and minimizes human errors.
+* Provides structured data that can be used for further analytics or business automation.
 
-# 4. Копіюємо та налаштовуємо .env
-cp .env.example .env
-# Відредагуйте .env — вкажіть DATABASE_URL
+## Image of Project
+<img width="1365" height="654" alt="Screenshot 2026-07-05 at 15-28-19 UKRSIB Bank — AI Branch Search for Sole Proprietors" src="https://github.com/user-attachments/assets/62df29f8-282e-4786-9d48-e0513754d10c" />
 
-# 5. Створюємо базу даних PostgreSQL
-createdb hromadianyn_db
-```
 
-## Запуск
+## Stack
 
-```bash
-# Повний pipeline (vkursi.pro + JSON файл)
-python -m app.main --vkursi-url "https://vkursi.pro/your-url" --fop-file data/fop_registered.json
+- Python 3.11+
+- PostgreSQL
+- SQLAlchemy 2.0
+- Pydantic 2.0
+- BeautifulSoup4
+- geopy (Nominatim)
+- Alembic
 
-# Тільки JSON файл
-python -m app.main --fop-file data/fop_registered.json
+## Key Features
 
-# Тільки vkursi.pro
-python -m app.main --vkursi-url "https://vkursi.pro/your-url"
+- ✅ Parse FOP registration data from **vkursi.pro**
+- ✅ Load and validate FOP records from JSON
+- ✅ Parse UKRSIB Bank branch locations
+- ✅ Geocode addresses using Nominatim
+- ✅ Find the nearest UKRSIB branch using the Haversine formula
+- ✅ Store processed data in PostgreSQL with SQLAlchemy ORM
+- ✅ Database migrations with Alembic
+- ✅ Modular architecture with repositories and services
 
-# Детальне логування
-python -m app.main --fop-file data/fop_registered.json --verbose
-```
+## Project Diagram
+<img width="776" height="500" alt="Untitled Diagram drawio(18)" src="https://github.com/user-attachments/assets/bee8555d-d5cb-4c62-a6d3-a25c2ecc673d" />
 
-## Структура проєкту
 
+
+## Project Structure
 ```
 Hromadianyn_F/
 ├── app/
-│   ├── main.py                 # Головний pipeline
-│   ├── config.py               # Конфігурація (Pydantic Settings)
 │   ├── db/
-│   │   ├── database.py         # SQLAlchemy engine + session
-│   │   └── models.py           # ORM-моделі (5 таблиць)
-│   ├── schemas/                # Pydantic-схеми
-│   │   ├── fop.py              # ФОП
-│   │   ├── person.py           # Фізична особа
-│   │   ├── company.py          # ТОВ / Юр. особа
-│   │   └── branch.py           # Відділення банку
-│   ├── services/               # Бізнес-логіка
-│   │   ├── vkursi_parser.py    # Парсинг HTML з vkursi.pro
-│   │   ├── ukrsib_parser.py    # Парсинг відділень UKRSIB
-│   │   ├── fop_file_loader.py  # Завантаження JSON
-│   │   ├── address_filter.py   # Визначення району/області
-│   │   ├── geocoder.py         # Геокодування (Nominatim)
-│   │   └── branch_finder.py    # Пошук найближчого відділення
-│   └── repositories/           # CRUD-операції
-│       ├── fop_repo.py
-│       ├── person_repo.py
-│       ├── company_repo.py
-│       └── branch_repo.py
+│   │   ├── database.py
+│   │   └── models.py
+│   ├── repositories/
+│   ├── schemas/
+│   ├── services/
+│   ├── config.py
+│   └── main.py
 ├── data/
-│   └── fop_registered.json     # Приклад вхідного файлу
+│   └── fop_registered.json
 ├── tests/
 ├── .env.example
+├── .gitignore
+├── README.md
+├── pyproject.toml
 ├── requirements.txt
-└── pyproject.toml
+├── run.sh
+├── run_frontend.sh
+└── index.html
 ```
 
-## База даних (таблиці)
+## Database Tables
 
-| Таблиця | Опис |
-|---------|------|
-| `physical_persons` | Фізичні особи (ім'я, прізвище, ІПН, адреса) |
-| `fops` | ФОП з прив'язкою до фіз. особи та відділення |
-| `legal_entities` | Юридичні особи (ТОВ, ПП тощо) |
-| `ukrsib_branches` | Відділення UKRSIB Bank з координатами |
-| `vkursi_records` | Сирі записи з vkursi.pro |
+| Table | Description |
+|-------|-------------|
+| physical_persons | Personal information |
+| fops | Sole proprietors linked to individuals and bank branches |
+| legal_entities | Companies and legal entities |
+| ukrsib_branches | UKRSIB Bank branches with coordinates |
+| vkursi_records | Raw records parsed from vkursi.pro |
+
+## Quick Start
+
+```bash
+# Clone repository
+git clone https://github.com/drizzy1772/Hromadianyn_F.git
+
+cd Hromadianyn_F
+
+# Create virtual environment
+python -m venv venv
+
+# Activate environment (macOS/Linux)
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Configure environment variables
+cp .env.example .env
+
+# Create PostgreSQL database
+createdb hromadianyn_db
+```
+
+## Run
+
+```bash
+# Full pipeline
+python -m app.main --vkursi-url "https://vkursi.pro/your-url" --fop-file data/fop_registered.json
+
+# JSON only
+python -m app.main --fop-file data/fop_registered.json
+
+# vkursi.pro only
+python -m app.main --vkursi-url "https://vkursi.pro/your-url"
+
+# Verbose mode
+python -m app.main --fop-file data/fop_registered.json --verbose
+```
+
+## Authors
+
+This project was developed during an **AI/Machine Learning Hackathon** by a team of four developers, including **Drizzy1772**.

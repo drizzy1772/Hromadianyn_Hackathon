@@ -136,7 +136,11 @@ python -m app.main --fop-file data/fop_registered.json --verbose
 ## Authors
 
 This project was developed during an **AI/Machine Learning Hackathon** by a team of four developers:
+
 - Front-end Developer
     - Egor
-Backend Developers: Bohdan(drizzy1772), Max;
-Project Manager: Serhii.
+- Backend Developers
+    - Bohdan(drizzy1772)
+    - Max
+Project Manager
+    - Serhii
